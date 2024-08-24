@@ -5,5 +5,5 @@
     state: latest
 
 - name: "iterm2 | Import Preferences"
-  community.general.pause:
+  ansible.builtin.pause:
     prompt: "Please import iTerm2 preferences and press Enter to continue"

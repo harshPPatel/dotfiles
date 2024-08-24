@@ -5,7 +5,7 @@
     state: latest
 
 - name: "1Password | Login to 1Password"
-  community.general.pause:
+  ansible.builtin.pause:
     prompt: "Please login to 1Password and press Enter to continue"
 
 - name: "1Password | Install CLI"
@@ -14,7 +14,7 @@
     state: latest
 
 - name: "1Password | Modify Settings"
-  community.general.pause:
+  ansible.builtin.pause:
     prompt: "Please enable CLI Integration and SSH Agent in 1Passowrd. Once done, press Enter to continue"
 
 - name: "1Password | Install Safari Extension"
