@@ -18,6 +18,9 @@ if ! command -v ansible >/dev/null 2>&1; then
   fi
 fi
 
+echo "Updating the yadm repo origin URL"
+yadm remote set-url origin "git@github.com:harshPPatel/dotfiles.git"
+
 # Ansible Config folder
 ANSIBLE_CONFIG_FOLDER=$HOME/.config/ansible
 
