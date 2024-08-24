@@ -3,22 +3,25 @@
   community.general.homebrew:
     name: 1password
     state: latest
+  register: one_password
 
 - name: "1Password | Login to 1Password"
   ansible.builtin.pause:
     prompt: "Please login to 1Password and press Enter to continue"
+  when: one_password.changed
 
 - name: "1Password | Install CLI"
   community.general.homebrew:
     name: 1password-cli
     state: latest
+  register: one_password_cli
 
 - name: "1Password | Modify Settings"
   ansible.builtin.pause:
     prompt: "Please enable CLI Integration and SSH Agent in 1Passowrd. Once done, press Enter to continue"
+  when: one_password_cli.changed
 
 - name: "1Password | Install Safari Extension"
   community.general.mas:
     id: 1569813296
-    name: "1Password for Safari"
     state: latest

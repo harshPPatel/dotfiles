@@ -1,18 +1,17 @@
 SYSTEM=$(uname -s)
 
 # Install XCode Command Line Tools
-if [ "$SYSTEM" = "Darwin" ]; then
-  if ! command -v xcode-select >/dev/null 2>&1; then
-    echo "Installing XCode Command Line Tools"
-    xcode-select --install
-  fi
-fi
+# TODO: Add if statement
+echo "Installing XCode Command Line Tools"
+xcode-select --install
 
 # Install Homebrew
 if [ "$SYSTEM" = "Darwin" ]; then
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Adding brew to session
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 fi
 

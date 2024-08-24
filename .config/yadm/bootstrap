@@ -4,7 +4,9 @@ SYSTEM=$(uname -s)
 if [ "$SYSTEM" = "Darwin" ]; then
   if ! command -v brew >/dev/null 2>&1; then
     echo "Installing homebrew"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    # Adding brew to session
+    eval "$(/opt/homebrew/bin/brew shellenv)"
   fi
 fi
 
@@ -13,13 +15,14 @@ if ! command -v ansible >/dev/null 2>&1; then
   echo "Installing ansible"
   if [ "$SYSTEM" = "Darwin" ]; then
     brew install ansible
-  else
-    sudo apt-get install -y ansible
   fi
 fi
 
 echo "Updating the yadm repo origin URL"
 yadm remote set-url origin "git@github.com:harshPPatel/dotfiles.git"
+
+# Install mas CLI as it is used in first role to install 1Password extension
+brew install mas
 
 # Ansible Config folder
 ANSIBLE_CONFIG_FOLDER=$HOME/.config/ansible
