@@ -1,0 +1,14 @@
+- name: Dotfiles
+  hosts: localhost
+  connection: local
+  roles:
+    - 1password
+    - brew
+    - mas
+    - git
+    - fonts
+    - macos
+    - iterm2
+    - node
+    - memnook
+    - pkg

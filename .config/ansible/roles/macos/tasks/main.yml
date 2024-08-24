@@ -1,0 +1,18 @@
+---
+- name: "MacOS | Set Up MacOS System Preferences"
+  ansible.builtin.include_tasks: "{{ item }}"
+  loop:
+    - desktop.yml
+    - dock.yml
+    - finder.yml
+    - keyboard.yml
+    - menubar.yml
+    - mission-control.yml
+    - mouse.yml
+    - music.yml
+    - widget.yml
+    - window-manager.yml
+
+
+  # TODO: Add pause and let the user know that when they login/logut, the changes will apply
+  # TODO: Go over each setting window in System PReference and write settings for it here

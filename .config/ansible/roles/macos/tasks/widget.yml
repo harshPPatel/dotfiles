@@ -1,0 +1,8 @@
+---
+- name: "widget | Set Widget style to Automatic"
+  community.general.osx_defaults:
+    domain: com.apple.widget
+    key: widgetAppearance
+    type: int
+    value: 2
+    state: present

@@ -1,0 +1,17 @@
+---
+- name: "pkg | Check if the {{ app_name }} is already installed"
+  ansible.builtin.stat:
+    path: "{{ app_expected_path }}"
+  register: app_exists
+
+- name: "pkg | Check if the .pkg file exists"
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/.config/ansible/roles/pkg/files/{{ app_file_name }}.pkg"
+  register: pkg_exists
+
+# TODO: Add check for if the folder exists?
+- name: "pkg | Run the installer command for .pkg files"
+  ansible.builtin.command:
+    cmd: sudo installer -pkg "{{ ansible_env.HOME }}/.config/ansible/roles/pkg/files/{{ app_file_name }}.pkg" -target "/Applications"
+  when: app_exists.stat.exists == False and pkg_exists.stat.exists == True
+

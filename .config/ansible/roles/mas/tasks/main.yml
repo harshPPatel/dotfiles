@@ -1,0 +1,20 @@
+---
+- name: "Mac App Store | Prerequisites"
+  ansible.builtin.pause:
+    prompt: "Make sure to sign in to the Mac App Store before continuing. Press Enter to continue."
+
+- name: "Mac App Store | Install Applications"
+  community.general.mas:
+    id: "{{ item.id }}"
+    state: latest
+  loop:
+    - { id: 904280696, name: "Things 3" }
+    - { id: 409183694, name: "Keynote" }
+    - { id: 409203825, name: "Numbers" }
+    - { id: 409201541, name: "Pages" }
+    - { id: 1532875441, name: "One Sec" }
+    # Safari Extensions
+    - { id: 1640236961, name: "Save to Reader" }
+    - { id: 1514703160, name: "Focus for YouTube" }
+  loop_control:
+    label: "{{ item.name }}"

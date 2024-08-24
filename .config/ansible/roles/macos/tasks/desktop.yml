@@ -1,0 +1,24 @@
+---
+- name: "desktop | Show External Disks on Desktop"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowExternalHardDrivesOnDesktop
+    type: bool
+    value: true
+    state: present
+
+- name: "desktop | Show Hard Disks on Desktop"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowRemovableMediaOnDesktop
+    type: bool
+    value: true
+    state: present
+
+- name: "desktop | Show Mounted Servers on Desktop"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowMountedServersOnDesktop
+    type: bool
+    value: true
+    state: present

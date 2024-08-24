@@ -1,0 +1,37 @@
+---
+- name: "Memnook | Check if code folder exists"
+  ansible.builtin.file:
+    path: "{{ ansible_env.HOME }}/code"
+    state: directory
+
+- name: "Memnook | Check if repo already exists locally"
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/code/memnook"
+  register: memnook_exists
+
+- name: "Memnook | Clone the memnook repo"
+  ansible.builtin.git:
+    repo: "git@github.com:harshPPatel/memnook-turbo.git"
+    dest: "{{ ansible_env.HOME }}/code/memnook"
+  when: memnook_exists.stat.exists == False
+
+- name: "Memnook | Install packages in memnook using pnpm"
+  community.general.pnpm:
+    path: "{{ ansible_env.HOME }}/code/memnook"
+  when: memnook_exists.stat.exists == False
+
+- name: "Memnook | Check if memnook-turbo repo already exists locally"
+  ansible.builtin.stat:
+    path: "{{ ansible_env.HOME }}/code/memnook-turbo"
+  register: memnook_turbo_exists
+
+- name: "Memnook | Clone the memnook-turbo repo"
+  ansible.builtin.git:
+    repo: "git@github.com:harshPPatel/memnook-turbo.git"
+    dest: "{{ ansible_env.HOME }}/code/memnook-turbo"
+  when: memnook_turbo_exists.stat.exists == False
+
+- name: "Memnook | Install packages in memnook-turbo using pnpm"
+  community.general.pnpm:
+    path: "{{ ansible_env.HOME }}/code/memnook-turbo"
+  when: memnook_exists.stat.exists == False

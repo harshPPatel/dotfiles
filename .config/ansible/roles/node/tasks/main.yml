@@ -1,0 +1,19 @@
+---
+- name: "Node | Install Node.js using n"
+  community.general.homebrew:
+    name: n
+    state: latest
+
+- name: "Node | Install pnpm"
+  community.general.homebrew:
+    name: pnpm
+    state: latest
+
+- name: "Node | Install global packages using pnpm"
+  community.general.pnpm:
+    name: "{{ item }}"
+    global: true
+    state: latest
+  loop:
+    - turbo
+

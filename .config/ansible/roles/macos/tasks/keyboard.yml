@@ -1,0 +1,17 @@
+---
+- name: "keyboard | Set Key Helddown Behaviour"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: ApplePressAndHoldEnabled
+    type: bool
+    value: false
+    state: present
+
+- name: "keyboard | Set Function key to open emoji picket"
+  community.general.osx_defaults:
+    domain: com.apple.HIToolbox
+    key: AppleFnUsageType
+    type: int
+    value: 2
+    state: present
+    # TODO: Add other mouse settings like scroll behaviour

@@ -1,0 +1,24 @@
+---
+- name: "mission-control | Set Key Helddown Behaviour"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: mru-spaces
+    type: bool
+    value: false
+    state: present
+
+- name: "mission-control | Group windows by application"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: expose-group-apps
+    type: bool
+    value: true
+    state: present
+
+- name: "mission-control | Disable Displays have separate Spaces"
+  community.general.osx_defaults:
+    domain: com.apple.spaces
+    key: spans-displays
+    type: bool
+    value: true
+    state: present

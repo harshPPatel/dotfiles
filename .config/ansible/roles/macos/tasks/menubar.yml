@@ -1,0 +1,40 @@
+---
+- name: "menubar | Always show date"
+  community.general.osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: ShowDate
+    type: int
+    value: 1
+    state: present
+
+- name: "menubar | Show day of the week"
+  community.general.osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: ShowDayOfWeek
+    type: bool
+    value: true
+    state: present
+
+- name: "menubar | Set the style to digital"
+  community.general.osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: IsAnalog
+    type: bool
+    value: false
+    state: present
+
+- name: "menubar | Show AM/PM"
+  community.general.osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: ShowAMPM
+    type: bool
+    value: true
+    state: present
+
+- name: "menubar | Show Seconds"
+  community.general.osx_defaults:
+    domain: com.apple.menuextra.clock
+    key: ShowSeconds
+    type: bool
+    value: true
+    state: present

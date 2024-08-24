@@ -1,0 +1,12 @@
+---
+- name: "pkg | Install pkg packages"
+  ansible.builtin.include_tasks: "./install.yml"
+  vars:
+    # apply:
+    app_file_name: "{{ item.app_file_name }}"
+    app_expected_path: "{{ item.app_expected_path }}"
+  loop:
+    - { app_file_name: canon-ij-scan-utility-lite, app_expected_path: "/Applications/Canon Utilities/IJ Scan Utility/Canon IJ Scan Utility Lite.app" }
+  loop_control:
+    label: "{{ item.app_file_name }}"
+

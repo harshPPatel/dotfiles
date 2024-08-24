@@ -1,0 +1,8 @@
+---
+- name: "music | Disable Playback notifications"
+  community.general.osx_defaults:
+    domain: com.apple.Music
+    key: userWantsPlaybackNotifications
+    type: bool
+    value: false
+    state: present

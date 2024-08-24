@@ -1,0 +1,28 @@
+SYSTEM=$(uname -s)
+
+# Install Homebrew
+if [ "$SYSTEM" = "Darwin" ]; then
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing homebrew"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+  fi
+fi
+
+# Install ansible
+if ! command -v ansible >/dev/null 2>&1; then
+  echo "Installing ansible"
+  if [ "$SYSTEM" = "Darwin" ]; then
+    brew install ansible
+  else
+    sudo apt-get install -y ansible
+  fi
+fi
+
+# Ansible Config folder
+ANSIBLE_CONFIG_FOLDER=$HOME/.config/ansible
+
+# Install requirement roles/plugins using Ansible Galaxy
+ansible-galaxy install -r $ANSIBLE_CONFIG_FOLDER/requirements.yml
+
+# Run the playbook
+ansible-playbook $ANSIBLE_CONFIG_FOLDER/playbook.yml --ask-become-pass

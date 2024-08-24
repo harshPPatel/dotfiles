@@ -1,0 +1,40 @@
+---
+- name: "window-manager | Enable 'Click wallpaper to reveal desktop' only when using Stage Manager"
+  community.general.osx_defaults:
+    domain: com.apple.WindowManager
+    key: EnableStandardClickToShowDesktop
+    type: bool
+    value: false
+    state: present
+
+- name: "window-manager | Show Items on Desktop"
+  community.general.osx_defaults:
+    domain: com.apple.WindowManager
+    key: StandardHideDesktopIcons
+    type: bool
+    value: false
+    state: present
+
+- name: "window-manager | Show Items on Stage Manager"
+  community.general.osx_defaults:
+    domain: com.apple.WindowManager
+    key: HideDesktop
+    type: bool
+    value: false
+    state: present
+
+- name: "window-manager | Show Widgets on Desktop"
+  community.general.osx_defaults:
+    domain: com.apple.WindowManager
+    key: StandardHideWidgets
+    type: bool
+    value: false
+    state: present
+
+- name: "window-manager | Show Widgets on Stage Manager"
+  community.general.osx_defaults:
+    domain: com.apple.WindowManager
+    key: StageManagerHideWidgets
+    type: bool
+    value: false
+    state: present

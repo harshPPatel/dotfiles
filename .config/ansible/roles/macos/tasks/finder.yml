@@ -1,0 +1,91 @@
+---
+# TODO: naming convention. Add a prefix to the name of the task
+- name: "finder | Always show extensions"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: AppleShowAllExtensions
+    type: bool
+    value: true
+    state: present
+
+- name: "finder | Show Hidden files"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: AppleShowAllFiles
+    type: bool
+    value: true
+    state: present
+
+- name: "finder | Show Pathbar"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: ShowPathbar
+    type: bool
+    value: true
+    state: present
+
+- name: "finder | Set Default view style to List"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: FXPreferredViewStyle
+    type: string
+    value: Nlsv
+    state: present
+
+- name: "finder | Always keep folders at top"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: _FXSortFoldersFirst
+    type: bool
+    value: true
+    state: present
+
+- name: "finder | Set Finder Search scope to current folder"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: FXDefaultSearchScope
+    type: string
+    value: SCcf
+    state: present
+
+- name: "finder | Empty bin after 30 days"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: FXRemoveOldTrashItems
+    type: bool
+    value: true
+    state: present
+
+- name: "finder | Disable warning when changing file extension"
+  community.general.osx_defaults:
+    domain: com.apple.finder
+    key: FXEnableExtensionChangeWarning
+    type: bool
+    value: false
+    state: present
+
+- name: "finder | Always Exapand Save Panel by default"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: NSNavPanelExpandedStateForSaveMode
+    type: bool
+    value: true
+    state: present
+
+- name: "finder | Always Exapand Print Panel by default"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: PMPrintingExpandedStateForPrint
+    type: bool
+    value: true
+    state: present
+
+- name: "finder | Disable metadata files on network volumes"
+  community.general.osx_defaults:
+    domain: com.apple.desktopservices
+    key: DSDontWriteNetworkStores
+    type: bool
+    value: true
+    state: present
+
+# TODO: Use this to restore sidebar? https://georgegarside.com/blog/macos/finder-sidebar-preferences-location/

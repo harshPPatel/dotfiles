@@ -1,0 +1,11 @@
+---
+- name: "Fonts | Install Fonts using Homebrew"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - font-geist
+    - font-geist-mono
+    - font-geist-mono-nerd-font
+    - font-jetbrains-mono
+    - font-jetbrains-mono-nerd-font

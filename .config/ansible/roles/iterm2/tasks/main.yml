@@ -1,0 +1,9 @@
+---
+- name: "iterm2 | Install Application"
+  community.general.homebrew:
+    name: iterm2
+    state: latest
+
+- name: "iterm2 | Import Preferences"
+  community.general.pause:
+    prompt: "Please import iTerm2 preferences and press Enter to continue"

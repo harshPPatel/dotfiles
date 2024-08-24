@@ -1,0 +1,39 @@
+---
+- name: "Homebrew | Install Applications & Packages"
+  community.general.homebrew:
+    name: "{{ item }}"
+    state: latest
+  loop:
+    - git
+    # TODO: Add zsh and make it the default shell (also remove default shell from macos)
+    - fzf
+    - zoxide
+    - arc
+    - aerospace
+    - monitorcontrol
+    - minecraft
+    - batteries
+    - notion
+    - pdf-squeezer
+    - filebot
+    - iina
+    - adobe-acrobat-reader
+    - discord
+    - evernote
+    - folx
+    - rocket
+    - iina
+    - the-unarchiver
+    # Messaging
+    - telegram
+    - whatsapp
+    # Memnook
+    - anki
+    - android-studio
+    - figma
+    - google-chrome
+    - firefox
+    - linear-linear
+    - visual-studio-code
+    - vercel-cli
+    - tableplus # TODO: Check how we can set it up using 1Password SSH agents? OR URLs?

@@ -1,0 +1,4 @@
+git:
+  username: "Harsh Patel"
+  email: "harshppatel2880@gmail.com"
+  # TODO: Add signing configs. Reference: https://github.com/TechDufus/dotfiles/blob/main/roles/git/tasks/main.yml

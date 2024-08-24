@@ -1,0 +1,73 @@
+---
+- name: "dock | Set Dock size to 36"
+  community.general.osx_defaults:
+    domain: com.apple.dock
+    key: tilesize
+    type: int
+    value: 36
+    state: present
+
+- name: "dock | Enable Dock autohide"
+  ansible.builtin.osx_defaults:
+    domain: com.apple.dock
+    key: autohide
+    type: bool
+    value: true
+    state: present
+
+- name: "dock | Set Dock autohide delay to 0"
+  ansible.builtin.osx_defaults:
+    domain: com.apple.dock
+    key: autohide-delay
+    type: float
+    value: 0
+    state: present
+
+- name: "dock | Set Dock autohide animation duration to 0"
+  ansible.builtin.osx_defaults:
+    domain: com.apple.dock
+    key: autohide-time-modifier
+    type: float
+    value: 0
+    state: present
+
+- name: "dock | Disable Recent Applications in Dock"
+  ansible.builtin.osx_defaults:
+    domain: com.apple.dock
+    key: show-recents
+    type: bool
+    value: false
+    state: present
+
+- name: "dock | Set Minimize effect to Scale"
+  ansible.builtin.osx_defaults:
+    domain: com.apple.dock
+    key: mineffect
+    type: string
+    value: scale
+    state: present
+
+- name: "dock | Only show active apps in Dock"
+  ansible.builtin.osx_defaults:
+    domain: com.apple.dock
+    key: static-only
+    type: bool
+    value: true
+    state: present
+
+- name: "dock | Disable Magnification effect"
+  ansible.builtin.osx_defaults:
+    domain: com.apple.dock
+    key: magnification
+    type: bool
+    value: false
+    state: present
+
+#  TODO Review if this is needed with "Disable Magnification effect"
+# - name: "dock | Set Dock icon size to 128"
+#   ansible.builtin.osx_defaults:
+#     domain: com.apple.dock
+#     key: largesize
+#     type: int
+#     value: 128
+#     state: present

@@ -1,0 +1,34 @@
+---
+- name: "mouse | Set Mouse Speed"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.mouse.scaling
+    type: float
+    value: 2.5
+    state: present
+
+- name: "mouse | Set Scrolling Speed"
+  community.general.osx_defaults:
+    domain: NSGlobalDomain
+    key: com.apple.scrollwheel.scaling
+    type: float
+    value: 1.7
+    state: present
+
+- name: "mouse | Trackpad - Enable Tap to Click"
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: Clicking
+    type: bool
+    value: true
+    state: present
+
+- name: "mouse | Trackpad - Enable right click"
+  community.general.osx_defaults:
+    domain: com.apple.AppleMultitouchTrackpad
+    key: TrackpadRightClick
+    type: bool
+    value: true
+    state: present
+
+    # TODO: Add other mouse settings like scroll behaviour
